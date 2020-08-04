@@ -1,6 +1,6 @@
 # AzureJanitor
 
-This repo contains all ther necesaary components needed to deploy and onboard to AzureJanitor.See the Contribution guide for how to use or contribute to this repo.
+This repo contains all ther necesaary components needed to deploy and onboard to AzureJanitor. See the Contribution guide for how to use or contribute to this repo.
 
 
 # Introduction
