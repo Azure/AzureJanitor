@@ -11,13 +11,34 @@ AzureJanitor is a Serverless Service which enables subscription owners to config
 
 AzureJanitor Design can be split into 4 major parts as following:
 
-1. Recognizing the _stale_ resources
+## 1. Recognizing the _stale_ resources :
 
-2. Auto-Alerting 
+### Resource Group Tags 
 
-3. Auto-Deletion
+Before diving into this option of recognizing the stale resources, a major azure resource used for this approach is Azure Policy. Azure policy is a resource which enforces built-in/custom rules capabilities at subscription level.  
 
-4. Onboarding
+Firstly we will be defining an azure policy which will be shared/assigned across all the onboarded subscriptions. The policy will auto-tag any new resource group added to the policy as following: 
+
+Key : CreationDate 
+
+Value : utcNow() 
+ 
+Key : DaysUntilDeletion 
+
+Value : 15  
+
+ 
+Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed.  
+ 
+Example of the Azure Policy  which enables adding above tags on resource groups: https://github.com/stefanrothnet/azure-policy/blob/master/append-date-tag-resource-group/azurepolicy.json 
+
+### Resource Insights
+
+## 2. Auto-Alerting 
+
+## 3. Auto-Deletion
+
+## 4. Onboarding
 
 # Contributing
 
